@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNUP AND LOGIN USING LS</title>
+    <link rel="stylesheet" href="local.css">
+</head>
+<body>
+   
+    <img src="https://sso.masaischool.com/brand_dark.svg" alt="">
+    <div id="cont">
+        <h1>Sign In</h1>
+        <div id="cred">
+            <label>Email</label>
+                <input id="email"  type="text" placeholder="Enter Email">
+            
+            <label>Password</label>
+                <input id="pass"  type="text" placeholder="Enter Password">
+                <button id="btn">Sign In</button>
+
+                <div id="link">
+                    <div>Don't have an account? <a href="signup.html">Sign Up </a> </div> 
+                    <div> <a href="loginpage.html"> </a> </div> 
+                 </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    document.querySelector("#btn").addEventListener("click",signFunc)
+    var data = JSON.parse(localStorage.getItem("logincred"))
+    // check(data)
+    // console.log(data)
+    function signFunc(){
+        var em=document.querySelector("#email").value
+        var pas=document.querySelector("#pass").value
+
+        // function check(data){
+            data.forEach(function(el){
+                if(el.Pemail==em && pas==el.Ppass) alert("Login successfull")
+                else alert("Enter correct credentials")
+            })
+        }
+    // }
+    
+</script>

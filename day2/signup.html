@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNUP AND LOGIN USING LS</title>
+    <link rel="stylesheet" href="local.css">
+</head>
+<body>
+  
+        <img src="https://sso.masaischool.com/brand_dark.svg" alt="">
+   
+   
+    <div id="cont">
+        <h1>Sign Up</h1>
+        <div id="cred">
+            <label>Full Name</label>
+                <input id="name" type="text" placeholder="Enter Name">
+           
+            <label>Email</label>
+                <input id="email"  type="text" placeholder="Enter Email">
+            
+            <label>Password</label>
+                <input id="pass"  type="text" placeholder="Enter Password">
+                <button id="btn">Sign Up</button>
+
+                <div id="link">
+                    <div> <a href="signup.html"></a> </div> 
+                    <div> Aleardy have an account? <a href="loginpage.html">Sign In</a></div> 
+                 </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+
+document.querySelector("#btn").addEventListener("click",addDataFunc)
+
+var ar=[]
+function addDataFunc(){
+var ob={
+    Pname:document.querySelector("#name").value,
+    Pemail:document.querySelector("#email").value,
+    Ppass:document.querySelector("#pass").value
+};
+ar.push(ob)
+// console.log(ar)
+localStorage.setItem("logincred",JSON.stringify(ar))
+window.location.href="loginpage.html"
+}
+</script>
