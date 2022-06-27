@@ -1,0 +1,116 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-COMMERCE II</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #counter{
+            width: 51rem;
+            margin: auto;
+            padding: 0.6rem;
+            display: grid;
+            grid-template-columns: repeat(4,12rem);
+            gap: 0.5rem;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        #sbox{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: 0.5rem;
+        }
+        img{
+            width: 100%;
+            height: fit-content;
+        }
+        #btn{
+            display: flex;
+            justify-content: space-between;
+        }
+        #btn>button{
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: red;
+            padding: 0.2rem;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="page">
+        <h1 ><a id="page1" href="products.html">Product Page</a></h1>
+        <h1 > <a id="page2" href="index.html">Admin-Page</a> </h1>
+    </div>
+    <div id="counter">
+
+    </div>
+</body>
+</html>
+
+<script>
+    var ar= JSON.parse(localStorage.getItem('Products'))||[];
+    display(ar);
+
+    function display(data){
+        data.forEach(function(el,index) {
+            let box=document.createElement("div");
+            let im=document.createElement("img");
+            let pname=document.createElement("p");
+            let cat=document.createElement("p");
+            let pri=document.createElement("h3");
+            let gen=document.createElement("p");
+            let box1=document.createElement("div");
+            let btn1=document.createElement("button");
+            let btn2=document.createElement("button");
+            
+            im.src=el.image;
+            pname.innerText=el.name;
+            cat.innerText=el.category;
+            pri.innerText=el.price;
+            gen.innerText=el.gender;
+            btn1.innerText="Remove";
+            btn2.innerText="Sold";
+            btn2.style.color="black"
+
+            btn1.setAttribute("id","remove")
+            btn2.setAttribute("id","sold")
+            box.setAttribute("id","sbox")
+
+            box1.setAttribute("id","btn")
+            box1.append(btn1,btn2);
+            box.append(im,pname,cat,pri,gen,box1)
+            document.querySelector("#counter").append(box)
+
+
+            btn1.addEventListener("click",function(el,index){
+            deletF(el,index)
+
+            btn2.addEventListener("click",function(el){
+            booleanFunc(el);
+        });
+          });
+
+          function  deletF(el,index){
+            data.splice(el,1)
+            localStorage.setItem("Products",JSON.stringify(data))
+            window.location.reload()
+            }
+        });
+
+        
+
+        function booleanFunc(el){
+            // if(el.value===True){
+                console.log("green")
+            // }
+        }
+    }
+
+
+
+</script>

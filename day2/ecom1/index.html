@@ -1,0 +1,78 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-COMMERCE I</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="page">
+        <h1 ><a id="page1" href="products.html">Product Page</a></h1>
+        <h1 > <a  id="page2" href="index.html">Admin-Page</a> </h1>
+    </div>
+    
+    <div id="cont">
+
+        <h2 id="header">ADD A NEW PRODUCT</h2>
+        <form id="form">
+            <input type="text" placeholder="Product name" id="name">
+            <input type="text" placeholder="Category" id="category">
+            <input type="image url" placeholder="Image url" id="image">
+            <input type="number" placeholder="Price" id="price">
+            <select name="gender" id="gender">
+                <option value="none" selected>Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">other</option>
+            </select>
+            <div id="tr">
+                <input name="boolean-parameter" type="radio" value="true"  id="sold"/> True
+                <input name="boolean-parameter" type="radio" value="false"  id="sold"/> False
+                <input name="boolean-parameter" type="radio" value="null"  id="sold"/> Null
+            </div>
+            
+            <button id="add">Add Product</button>
+        </form>
+    </div>
+    
+
+</body>
+</html>
+
+<script>
+
+//Constructor Function start
+function product(pk,sk,mk,gk,bk,rk){
+    this.name=pk;
+    this.category=sk;
+    this.image=mk;
+    this.price=gk;
+    this.gender=bk;
+    this.sold=rk;
+}
+//Constructor Function end
+
+var ar= JSON.parse(localStorage.getItem('Products'))||[];
+document.querySelector("#add").addEventListener("click",function(){
+    event.preventDefault()
+
+    let pname=form.name.value;
+    let pcat=form.category.value;
+    let pimage=form.image.value;
+    let pprice=form.price.value;
+    let pgender=form.gender.value;
+    let psold=form.sold.value;
+    
+    let prod = new product(pname,pcat,pimage,pprice,pgender,psold) //Used new property in Constructor Function
+    // console.log(prod)
+    ar.push(prod)
+    localStorage.setItem("Products",JSON.stringify(ar));
+    window.location.href="products.html"
+})
+
+</script>

@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#page{
+    display: flex;
+    width:30rem ;
+    margin: auto;
+    justify-content: space-between;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    background-color: rgb(8, 155, 218);
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+
+}
+a{
+    font-style: none;
+    text-decoration: none;
+    color: white;
+}
+#page1:hover{
+    color: black;
+}
+#page2:hover{
+    color: black;
+}
+#cont{
+    /* border: 2px solid red; */
+    width: 30rem;
+    margin: auto;
+    padding: 2rem;
+    margin-top: 1rem;
+    border-radius: 0.4rem;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+#form{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    margin-top: 1rem;
+}
+#header{
+    text-align: center;
+}
+
+#form>input,#gender{
+    margin: auto;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    width: 20rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    
+}
+#gender>option{
+    text-align: center; 
+    border-radius: 0.5rem;
+}
+
+#add{
+    margin: auto;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    width: 20rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: rgb(17, 231, 74);
+    color: white;
+    /* border: 2px solid red;  */
+}
+#add:hover{
+    background-color: black;
+}
+#tr{
+    margin: auto;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    width: 20rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    /* border: 2px solid red;  */
+}
